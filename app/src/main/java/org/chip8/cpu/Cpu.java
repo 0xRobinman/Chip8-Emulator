@@ -13,13 +13,12 @@ public class Cpu {
      * 1-F (16) Variables
      */
     private int[] v;
-    private Gui gui;
     private int PC = 0x200;
     private byte[] rom;
+    private boolean debug = true;
 
     public Cpu(Gui gui) {
         v = new int[16];
-        this.gui = gui;
     }
 
     /**
@@ -40,9 +39,193 @@ public class Cpu {
         return opcode;
     }
 
+    /**
+     * Clear screen
+     * 0x00E0
+     */
+    private void clearDisplay() {
+
+    }
+
+    /**
+     * Return from subroutine
+     * 0x00EE
+     */
+    private void returnFromSubRoutine() {
+
+    }
+
+    /**
+     * 
+     * @param argument1
+     * @param argument2
+     * @param argument3
+     */
+    private void call(byte argument1, byte argument2, byte argument3) {
+
+    }
+
+    /**
+     * Jumps to NNN
+     * 0x1NNN
+     */
+    private void jump(byte argument1, byte argument2, byte argument3) {
+
+    }
+
+    /**
+     * Goes to subroutine NN
+     * 0x2NNN
+     * 
+     * @param argument1
+     * @param argument2
+     * @param argument3
+     */
+    private void subRoutine(byte argument1, byte argument2, byte argument3) {
+
+    }
+
+    /**
+     * Skips instruction if equal
+     * 0x3NNN
+     * 
+     * @param argument1
+     * @param argument2
+     * @param argument3
+     */
+    private void skipEqual(byte argument1, byte argument2, byte argument3) {
+
+    }
+
+    /**
+     * Skips if not equal
+     * 0x4NNN
+     * 
+     * @param argument1
+     * @param argument2
+     * @param argument3
+     */
+    private void skipNotEqual(byte argument1, byte argument2, byte argument3) {
+
+    }
+
+    /**
+     * Skips instruction if equal
+     * 0x5NNN
+     * 
+     * @param argument1
+     * @param argument2
+     */
+    private void skipEqual(byte argument1, byte argument2) {
+
+    }
+
+    /**
+     * Sets Variable[x] to NN
+     * 0x6XNN
+     * 
+     * @param argument1
+     * @param argument2
+     * @param argument3
+     */
+    private void set(byte argument1, byte argument2, byte argument3) {
+
+    }
+
+    private void handleOperation(byte instruction, byte argument1, byte argument2, byte argument3) {
+        switch (instruction) {
+            case 0x0:
+                if (argument1 == 0 && argument2 == 0xE) {
+                    if (argument3 == 0) {
+                        // Clear screen (0x00E0)
+                        clearDisplay();
+                    } else if (argument3 == 0xE) {
+                        // Return from sub routine (0x00EE)
+                        returnFromSubRoutine();
+                    }
+                } else {
+                    // Call (0x0NNN)
+                    call(argument1, argument2, argument3);
+                }
+                break;
+
+            case 0x1:
+                jump(argument1, argument2, argument3);
+                break;
+
+            case 0x2:
+                subRoutine(argument1, argument2, argument3);
+                break;
+
+            case 0x3:
+                skipEqual(argument1, argument2, argument3);
+                break;
+
+            case 0x4:
+                skipNotEqual(argument1, argument2, argument3);
+                break;
+
+            case 0x5:
+                skipEqual(argument1, argument2);
+                break;
+
+            case 0x6:
+                set(argument1, argument2, argument3);
+                break;
+
+            case 0x7:
+                break;
+
+            case 0x8:
+                break;
+
+            case 0x9:
+                break;
+
+            case 0xA:
+                break;
+
+            case 0xB:
+                break;
+
+            case 0xC:
+                break;
+
+            case 0xD:
+                break;
+
+            case 0xE:
+                break;
+
+            case 0xF:
+                break;
+
+        }
+    }
+
     public void tick() {
         short opcode = fetchOpcode();
-        System.out.println("Opcode: " + opcode);
+
+        // Extract each nibble of the 4 byte buffer
+        byte instructionCode = (byte) ((opcode & 0xF000) >> 12);
+        byte argument1 = (byte) ((opcode & 0x0F00) >> 8);
+        byte argument2 = (byte) ((opcode & 0x00F0) >> 4);
+        byte argument3 = (byte) (opcode & 0x000F);
+
+        switch (instructionCode) {
+            case 0:
+
+                break;
+            default:
+                throw new AssertionError();
+        }
+
+        String opcodeString = String.format("%04x", opcode & 0xffff);
+
+        if (debug)
+            System.out.println(opcodeString + "\t" + String.format("%01x", instructionCode) + "\t"
+                    + String.format("%01x", argument1) + "\t" + String.format("%01x", argument2) + "\t"
+                    + String.format("%01x", argument3));
     }
 
     /**
