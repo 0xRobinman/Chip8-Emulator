@@ -8,14 +8,12 @@ public class Cpu {
      */
     private int[] v;
     private Gui gui;
-    /**
-     * Program Counter
-     */
     private int PC;
+    private byte[] rom;
 
-    public Cpu() {
+    public Cpu(Gui gui) {
         v = new int[16];
-        gui = new Gui();
+        this.gui = gui;
     }
 
     private short fetchOpcode() {
@@ -23,6 +21,9 @@ public class Cpu {
         return 0;
     }
 
+    /**
+     * Read next instruction from ROM
+     */
     private void readInstruction() {
         // Fetch opcode
         short opcode = fetchOpcode();

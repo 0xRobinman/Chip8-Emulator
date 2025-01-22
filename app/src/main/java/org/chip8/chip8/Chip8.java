@@ -1,10 +1,13 @@
 package org.chip8.chip8;
 
 import org.chip8.cpu.Cpu;
+import org.chip8.display.Gui;
 
-public class Chip8 {
+public class Chip8 implements Runnable {
 
     private Cpu cpu;
+    private Gui gui;
+    private final int WIDTH = 640, HEIGHT = 320;
     private final int FPS = 60;
     private final double FRAME_INTERVAL = 1.0 / FPS;
 
@@ -15,9 +18,10 @@ public class Chip8 {
 
     }
 
-    public void startEmulator() {
-        cpu = new Cpu();
-
+    @SuppressWarnings("empty-statement")
+    public void gameLoop() {
+        gui = new Gui(WIDTH, HEIGHT);
+        cpu = new Cpu(gui);
         boolean dropFrame = false;
         double currentTime = 0, previousTime = System.nanoTime() / 1e9, deltaTime = 0, accumulatedTime = 0;
 
@@ -32,14 +36,33 @@ public class Chip8 {
                     && accumulatedTime >= FRAME_INTERVAL; accumulatedTime -= FRAME_INTERVAL)
                 ;
 
-            handleFrame();
-        }
+            if (!gui.romInserted()) {
+                gui.noRomInsertedScreen();
+            } else {
+                handleFrame();
+            }
+            if (dropFrame)
+                easeUsage();
 
+        }
+    }
+
+    private void easeUsage() {
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e) {
+        }
+    }
+
+    @Override
+    public void run() {
+        gameLoop();
     }
 
     public static void main(String[] args) {
         Chip8 chip8 = new Chip8();
-        chip8.startEmulator();
-        System.out.println("Hello, Chip8!");
+        Thread t = new Thread(chip8);
+        t.start();
     }
+
 }
