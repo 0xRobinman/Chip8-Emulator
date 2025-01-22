@@ -15,7 +15,8 @@ public class Chip8 implements Runnable {
      * Everything that must be done in a single frame.
      */
     private void handleFrame() {
-
+        cpu.tick();
+        gui.renderGame();
     }
 
     @SuppressWarnings("empty-statement")
@@ -23,7 +24,11 @@ public class Chip8 implements Runnable {
         gui = new Gui(WIDTH, HEIGHT);
         cpu = new Cpu(gui);
         boolean dropFrame = false;
-        double currentTime = 0, previousTime = System.nanoTime() / 1e9, deltaTime = 0, accumulatedTime = 0;
+        double currentTime = 0,
+                previousTime = System.nanoTime() / 1e9,
+                deltaTime = 0,
+                accumulatedTime = 0;
+        boolean romLoaded = false;
 
         while (true) {
 
@@ -36,11 +41,17 @@ public class Chip8 implements Runnable {
                     && accumulatedTime >= FRAME_INTERVAL; accumulatedTime -= FRAME_INTERVAL)
                 ;
 
-            if (!gui.romInserted()) {
+            if (romLoaded) {
+                handleFrame();
+            } else if (!gui.romInserted()) {
                 gui.noRomInsertedScreen();
             } else {
-                handleFrame();
+                if (gui.getLoadedRom() != null) {
+                    cpu.loadRom(gui.getLoadedRom());
+                    romLoaded = true;
+                }
             }
+
             if (dropFrame)
                 easeUsage();
 

@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,14 +25,18 @@ public class Gui extends JFrame {
     private Graphics g;
     private boolean romInserted = false;
     private final String NO_ROM = "Please insert ROM";
+    private File loadedRom;
 
     private JMenuBar getMenu() {
 
         JMenuBar menubar = new JMenuBar();
-
         JMenu file = new JMenu("File");
+        JMenuItem openRom = new JMenuItem("Open ROM");
+        file.add(openRom);
 
-        file.add(new JMenuItem("Open ROM"));
+        openRom.addActionListener((ActionEvent e) -> {
+            loadedRom = getInputFile();
+        });
 
         menubar.add(file);
         return menubar;
@@ -56,6 +61,7 @@ public class Gui extends JFrame {
 
     public void renderGame() {
         g = bs.getDrawGraphics();
+        g.drawImage(gameScreen, 0, 0, gameCanvas.getWidth(), gameCanvas.getHeight(), null);
         bs.show();
     }
 
@@ -95,7 +101,12 @@ public class Gui extends JFrame {
         return null;
     }
 
+    public File getLoadedRom() {
+        return loadedRom;
+    }
+
     public Gui(int width, int height) {
+        loadedRom = null;
         this.setTitle("Chip8 Emulator - 0xRobinman");
         gameCanvas = createCanvas(width, height);
         gameScreen = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -105,7 +116,6 @@ public class Gui extends JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         gameCanvas.createBufferStrategy(2);
         bs = gameCanvas.getBufferStrategy();
 
