@@ -41,3 +41,13 @@ tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+sourceSets {
+    main {
+        resources {
+            srcDirs("src/main/resources")
+        }
+    }
+}
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
