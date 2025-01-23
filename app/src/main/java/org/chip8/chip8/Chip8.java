@@ -7,7 +7,7 @@ public class Chip8 implements Runnable {
 
     private Cpu cpu;
     private Gui gui;
-    private final int WIDTH = 640, HEIGHT = 320;
+    private final int WIDTH = 64, HEIGHT = 32;
     private final int FPS = 60;
     private final double FRAME_INTERVAL = 1.0 / FPS;
 

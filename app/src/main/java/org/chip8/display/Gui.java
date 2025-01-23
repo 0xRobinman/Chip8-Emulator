@@ -18,7 +18,7 @@ import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileFilter;
 
 public class Gui extends JFrame {
-
+    private final int SCALE = 15;
     private BufferedImage gameScreen;
     private Canvas gameCanvas;
     private BufferStrategy bs;
@@ -114,12 +114,17 @@ public class Gui extends JFrame {
         this.setTitle("Chip8 Emulator - 0xRobinman");
         gameCanvas = createCanvas(width, height);
         gameScreen = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        this.setPreferredSize(new Dimension(width * SCALE, height * SCALE));
+        this.setSize(new Dimension(width * SCALE, height * SCALE));
         this.add(gameCanvas);
         this.pack();
         this.setJMenuBar(getMenu());
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        this.setResizable(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+        this.update(gameCanvas.getGraphics());
+
         gameCanvas.createBufferStrategy(2);
         bs = gameCanvas.getBufferStrategy();
 

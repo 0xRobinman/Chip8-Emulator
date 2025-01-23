@@ -5,6 +5,11 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Stack;
+
+import javax.tools.Tool;
+
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 import org.chip8.display.Gui;
@@ -12,6 +17,7 @@ import org.chip8.display.Gui;
 public class Cpu {
     /**
      * 1-F (16) Variables
+     * F is the carry flag
      */
     private int[] v;
 
@@ -22,13 +28,81 @@ public class Cpu {
      * So PC starts at 0x200
      */
     private int PC = 0x200;
+
+    /**
+     * 12 bit register
+     * 0000 nnnn nnnn nnnn
+     * Mask =
+     * 0000 FFFF FFFF fFFF
+     */
+    private int i;
+    private final int I_MASK = 0x0FFF;
+
+    /**
+     * There are two timers, delay and sound
+     * Each count down from 60hz
+     * 60hz Timer roughly equals 16.67ms
+     * If sound time is != 0, a sound is played
+     */
+    private final float TIMER_PERIOD = 16.67f;
+    private float delayTimer = TIMER_PERIOD;
+    private float soundTimer = TIMER_PERIOD;
+
     private byte[] rom;
+    private int[][] display;
     private boolean debug = true;
+    private Stack<Integer> stack;
+
     private BufferedImage gameScreen;
 
     public Cpu(BufferedImage gameScreen) {
         v = new int[16];
+        display = new int[64][32];
         this.gameScreen = gameScreen;
+        stack = new Stack<>();
+        updateGameScreen();
+    }
+
+    /**
+     * Play beep sound effect
+     */
+    private void beep() {
+        Toolkit.getDefaultToolkit().beep();
+    }
+
+    /**
+     * Combine n and n2 to form a single 8 bit value
+     * 
+     * @param n
+     * @param n2
+     * @return
+     */
+    private byte convertTo8Bit(byte n, byte n2) {
+        return (byte) ((n << 4) | n2);
+    }
+
+    /**
+     * Combine n, n2, and n3 to form a single 12 bit value
+     * 
+     * @param n
+     * @param n2
+     * @param n3
+     * @return
+     */
+    private int convertToAddress(byte n, byte n2, byte n3) {
+        return (int) ((n << 8) | (n2 << 4) | n3);
+    }
+
+    private void updateGameScreen() {
+        for (int i = 0; i < display.length; i++) {
+            for (int j = 0; j < display[i].length; j++) {
+                if (display[i][j] == 0) {
+                    gameScreen.setRGB(i, j, 0x000000);
+                } else {
+                    gameScreen.setRGB(i, j, 0xFFFFFF);
+                }
+            }
+        }
     }
 
     /**
@@ -36,20 +110,17 @@ public class Cpu {
      * 
      * @return
      */
-    private short fetchOpcode() {
-        short opcode;
+    private int fetchOpcode() {
 
-        byte opcode_significant_bit = rom[PC];
-        byte opcode_least_significant_bit = rom[PC + 1];
+        int opcode;
+
+        // Since Chip8 is big endian
+        int opcodeUpperByte = rom[PC] & 0xFF;
+        int opcodeLowerByte = rom[PC + 1] & 0xFF;
+
+        opcode = (int) ((opcodeUpperByte << 8) | opcodeLowerByte);
 
         PC += 2;
-
-        ByteBuffer byteBuffer = ByteBuffer.allocate(2);
-        byteBuffer.order(ByteOrder.BIG_ENDIAN);
-        byteBuffer.put(opcode_significant_bit);
-        byteBuffer.put(opcode_least_significant_bit);
-
-        opcode = byteBuffer.getShort(0);
 
         return opcode;
     }
@@ -59,7 +130,12 @@ public class Cpu {
      * 0x00E0
      */
     private void clearDisplay() {
-
+        for (int i = 0; i < display.length; i++) {
+            for (int j = 0; j < display[i].length; j++) {
+                display[i][j] = 0x00;
+            }
+        }
+        updateGameScreen();
     }
 
     /**
@@ -67,17 +143,21 @@ public class Cpu {
      * 0x00EE
      */
     private void returnFromSubRoutine() {
-
+        // Get the address from the top of the stack
+        int subRoutineAddress = stack.pop();
+        PC = subRoutineAddress;
     }
 
     /**
+     * 
+     * 0x2NNN (IGNORE)
      * 
      * @param argument1
      * @param argument2
      * @param argument3
      */
     private void call(byte argument1, byte argument2, byte argument3) {
-
+        // NOP
     }
 
     /**
@@ -85,7 +165,8 @@ public class Cpu {
      * 0x1NNN
      */
     private void jump(byte argument1, byte argument2, byte argument3) {
-
+        int address = convertToAddress(argument1, argument2, argument3);
+        PC = address;
     }
 
     /**
@@ -97,11 +178,15 @@ public class Cpu {
      * @param argument3
      */
     private void subRoutine(byte argument1, byte argument2, byte argument3) {
-
+        int address = convertToAddress(argument1, argument2, argument3);
+        PC += 2;
+        stack.push((int) PC);
+        PC = address;
     }
 
     /**
      * Skips instruction if equal
+     * if v[x] == NN
      * 0x3NNN
      * 
      * @param argument1
@@ -110,10 +195,17 @@ public class Cpu {
      */
     private void skipEqual(byte argument1, byte argument2, byte argument3) {
 
+        byte nn = convertTo8Bit(argument2, argument3);
+
+        if (v[argument1] == nn) {
+            // Skip
+            PC += 2;
+        }
     }
 
     /**
      * Skips if not equal
+     * if v[x] != NN
      * 0x4NNN
      * 
      * @param argument1
@@ -122,17 +214,27 @@ public class Cpu {
      */
     private void skipNotEqual(byte argument1, byte argument2, byte argument3) {
 
+        byte nn = convertTo8Bit(argument2, argument3);
+        if (v[argument1] != nn) {
+            // Skip
+            PC += 2;
+        }
+
     }
 
     /**
      * Skips instruction if equal
+     * if v[x] == v[y]
      * 0x5NNN
      * 
      * @param argument1
      * @param argument2
      */
     private void skipEqual(byte argument1, byte argument2) {
-
+        if (v[argument1] == v[argument2]) {
+            // Skip
+            PC += 2;
+        }
     }
 
     /**
@@ -144,7 +246,8 @@ public class Cpu {
      * @param argument3
      */
     private void set(byte argument1, byte argument2, byte argument3) {
-
+        byte nn = convertTo8Bit(argument2, argument3);
+        v[argument1] = nn;
     }
 
     /**
@@ -156,7 +259,8 @@ public class Cpu {
      * @param argument3
      */
     private void add(byte argument1, byte argument2, byte argument3) {
-
+        byte nn = convertTo8Bit(argument2, argument3);
+        v[argument1] += nn;
     }
 
     /**
@@ -195,14 +299,33 @@ public class Cpu {
                 break;
 
             case 0x6:
+                // If the least significant bit of v[x] is 1, set v[0xF] to 1
+                if ((v[x] & -v[x]) == 1) {
+                    // v[f] is also used as a flag
+                    v[0xf] = 1;
+                } else {
+                    v[0xf] = 0;
+                }
                 v[x] >>= 1;
                 break;
 
             case 0x7:
+                // V[f] flag is set to 1 if !Borrow
+                if (v[y] > v[x]) {
+                    v[0xf] = 0;
+                } else {
+                    v[0xf] = 1;
+                }
                 v[x] = v[y] - v[x];
                 break;
 
             case 0xE:
+                // Set v[f] to 1 if most sig bit is 1
+                if ((v[x] & 0x80) == 0x80) {
+                    v[0xf] = 1;
+                } else {
+                    v[0xf] = 0;
+                }
                 v[x] <<= 1;
                 break;
 
@@ -223,6 +346,7 @@ public class Cpu {
     private void skipNotEqual(byte argument1, byte argument2) {
         if (v[argument1] != v[argument2]) {
             // Skip
+            PC += 2;
         }
     }
 
@@ -235,7 +359,8 @@ public class Cpu {
      * @param argument3
      */
     private void setAddress(byte argument1, byte argument2, byte argument3) {
-
+        int address = convertToAddress(argument1, argument2, argument3);
+        i = (int) (address & I_MASK);
     }
 
     /**
@@ -247,7 +372,8 @@ public class Cpu {
      * @param argument3
      */
     private void jumpTo(byte argument1, byte argument2, byte argument3) {
-
+        int address = convertToAddress(argument1, argument2, argument3);
+        PC = v[0] + address;
     }
 
     /**
@@ -259,7 +385,8 @@ public class Cpu {
      * @param argument3
      */
     private void andRandom(byte argument1, byte argument2, byte argument3) {
-
+        byte nn = convertTo8Bit(argument2, argument3);
+        v[argument1] = (int) (Math.random() * 255) & nn;
     }
 
     /**
@@ -283,6 +410,12 @@ public class Cpu {
      * @param argument3
      */
     private void skipKeyPressed(byte argument1, byte argument2, byte argument3) {
+        int keyCode = v[argument1];
+        // Get most recent key pressed
+        int keyPressed = 0x0;
+        if (keyCode == keyPressed) {
+            PC += 2;
+        }
 
     }
 
@@ -295,7 +428,12 @@ public class Cpu {
      * @param argument3
      */
     private void skipKeyNotPressed(byte argument1, byte argument2, byte argument3) {
-
+        int keyCode = v[argument1];
+        // Get most recent key pressed
+        int keyPressed = 0x0;
+        if (keyCode != keyPressed) {
+            PC += 2;
+        }
     }
 
     /**
@@ -304,7 +442,7 @@ public class Cpu {
      * @param x
      */
     private void setvxTimerDelay(byte x) {
-
+        v[x] = (int) delayTimer;
     }
 
     /**
@@ -324,7 +462,7 @@ public class Cpu {
      * @param x v[x]
      */
     private void setDelayTimer(byte x) {
-
+        delayTimer = v[x];
     }
 
     /**
@@ -333,7 +471,7 @@ public class Cpu {
      * @param x v[x]
      */
     private void setSoundTimer(byte x) {
-
+        soundTimer = v[x];
     }
 
     /**
@@ -342,7 +480,7 @@ public class Cpu {
      * @param x
      */
     private void iaddVx(byte x) {
-
+        i += v[x];
     }
 
     /**
@@ -369,16 +507,21 @@ public class Cpu {
      * @param x v[x]
      */
     private void storeV0toVxInMemory(byte x) {
-
+        for (int index = 0; index <= x; index++) {
+            // Store v[i] in memory starting at I
+            rom[i + index] = (byte) v[index];
+        }
     }
 
     /**
-     * Read v[0] ... v[x] from memory starting at I
+     * Read v[0] ... v[x] from memory starting at I into v[0 ... x]
      * 
      * @param x v[x]
      */
     private void readV0toVxFromMemory(byte x) {
-
+        for (int index = 0; index <= x; index++) {
+            v[index] = rom[i + index];
+        }
     }
 
     /**
@@ -388,16 +531,16 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void handle0xFOpcode(byte argument1, byte argument2, byte argument3) {
-        short endingNibbles;
-        byte opcode_significant_bit = argument2;
-        byte opcode_least_significant_bit = argument3;
+    private void handle0xFOpcode(int instruction, byte argument1, byte argument2, byte argument3) {
 
-        ByteBuffer byteBuffer = ByteBuffer.allocate(2);
-        byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
-        byteBuffer.put(opcode_significant_bit);
-        byteBuffer.put(opcode_least_significant_bit);
-        endingNibbles = byteBuffer.getShort(0);
+        /**
+         * Extract the last 2 nibbles of the instruction
+         * 0000 0000 nnnn nnnn &
+         * 0000 0000 1111 1111 << 8
+         * nnnn nnnn 0000 0000
+         * 0xPP, PP = hex value of nnnn
+         */
+        int endingNibbles = instruction & 0x00FF;
 
         switch (endingNibbles) {
             case 0x07:
@@ -437,7 +580,7 @@ public class Cpu {
                 break;
 
             default:
-                System.out.println("Invalid opcode");
+                System.out.println("Invalid opcode : " + String.format("%04x", endingNibbles));
                 break;
         }
 
@@ -456,7 +599,7 @@ public class Cpu {
                     }
                 } else {
                     // Call (0x0NNN)
-                    call(argument1, argument2, argument3);
+                    // call(argument1, argument2, argument3);
                 }
                 break;
 
@@ -525,7 +668,7 @@ public class Cpu {
                 break;
 
             case 0xF:
-                handle0xFOpcode(argument1, argument2, argument3);
+                handle0xFOpcode(instruction, argument1, argument2, argument3);
                 break;
 
             default:
@@ -535,7 +678,7 @@ public class Cpu {
     }
 
     public void tick() {
-        short opcode = fetchOpcode();
+        int opcode = fetchOpcode();
 
         // Extract each nibble of the 4 byte buffer
         byte instructionCode = (byte) ((opcode & 0xF000) >> 12);
@@ -561,32 +704,14 @@ public class Cpu {
      */
     public void loadRom(File file) {
         try (InputStream inputStream = new FileInputStream(file)) {
-            System.out.println("File size: " + inputStream.available());
+            System.out.println("File size: " + inputStream.available() + " bytes");
             int romSize = inputStream.available();
             rom = new byte[romSize];
             inputStream.read(rom);
-
-            if (inputStream.read() != -1) {
-                System.out.println("Invalid Chip8 file.");
-            } else {
-                System.out.println("File loaded");
-            }
-
             inputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Read next instruction from ROM
-     */
-    private void readInstruction() {
-        // Fetch opcode
-        short opcode = fetchOpcode();
-
-        // Decode opcode
-
     }
 
 }
