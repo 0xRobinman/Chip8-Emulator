@@ -1,31 +1,53 @@
 package org.chip8.display;
 
+import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.filechooser.FileFilter;
 
-public class Gui extends JFrame {
+public class Gui extends JFrame implements KeyListener {
     private final int SCALE = 15;
     private BufferedImage gameScreen;
-    private Canvas gameCanvas;
+    private Canvas gameCanvas, debugCanvas;
     private BufferStrategy bs;
     private Graphics g;
     private boolean romInserted = false;
     private final String NO_ROM = "Please insert ROM";
     private File loadedRom;
+    private ScrollPane debugPane;
+    private static final int MAX_LINES = 128;
+    private JLabel debugLines[];
+    private JPanel debugPanel;
+    private int currentKeyCode;
+    private boolean keyPressed = false;
+
+    public int getKeyCode() {
+        return currentKeyCode;
+    }
+
+    public boolean isKeyPressed() {
+        return keyPressed;
+    }
 
     private JMenuBar getMenu() {
 
@@ -109,24 +131,83 @@ public class Gui extends JFrame {
         return gameScreen;
     }
 
+    private ScrollPane createDebugPane() {
+        ScrollPane scrollPane = new ScrollPane();
+        debugPanel = new JPanel();
+        debugPanel.setLayout(new BoxLayout(debugPanel, BoxLayout.Y_AXIS));
+        debugPanel.setBackground(Color.BLUE);
+        scrollPane.add(debugPanel);
+        return scrollPane;
+    }
+
+    public JPanel getdebugPanel() {
+        return debugPanel;
+    }
+
     public Gui(int width, int height) {
         loadedRom = null;
+        debugLines = new JLabel[MAX_LINES];
         this.setTitle("Chip8 Emulator - 0xRobinman");
         gameCanvas = createCanvas(width, height);
         gameScreen = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        gameCanvas.addKeyListener(this);
+        debugPane = createDebugPane();
+
         this.setPreferredSize(new Dimension(width * SCALE, height * SCALE));
         this.setSize(new Dimension(width * SCALE, height * SCALE));
-        this.add(gameCanvas);
+
+        // Create border layout IF debug.
+        // Main screen | debug screen
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.add(gameCanvas, BorderLayout.CENTER);
+        panel.add(debugPane, BorderLayout.EAST);
+        this.add(panel);
+        // this.add(gameCanvas);
         this.pack();
         this.setJMenuBar(getMenu());
         this.setLocationRelativeTo(null);
         this.setResizable(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.addKeyListener(this);
         this.setVisible(true);
         this.update(gameCanvas.getGraphics());
-
         gameCanvas.createBufferStrategy(2);
         bs = gameCanvas.getBufferStrategy();
 
+    }
+
+    /**
+     * The CHIP 8 only has 16 keys, 0x0 - 0xF
+     * However, for the sake of ease, we will also map the 'WASD' and arrow keys.
+     * 
+     * @param keyCode
+     * @return
+     */
+    private int getMapedKeyCode(int keyCode) {
+        return keyCode;
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        currentKeyCode = getMapedKeyCode(e.getKeyCode());
+        keyPressed = true;
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // If a key is released, and it's not the current key, ignore it since another
+        // key is being pressed.
+        if (e.getKeyCode() != currentKeyCode) {
+            return;
+        } else {
+            keyPressed = false;
+            currentKeyCode = -1;
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Ignore this one.
     }
 }

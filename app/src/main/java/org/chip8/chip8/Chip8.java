@@ -1,5 +1,7 @@
 package org.chip8.chip8;
 
+import javax.swing.JPanel;
+
 import org.chip8.cpu.Cpu;
 import org.chip8.display.Gui;
 
@@ -15,6 +17,11 @@ public class Chip8 implements Runnable {
      * Everything that must be done in a single frame.
      */
     private void handleFrame() {
+        if (gui.isKeyPressed()) {
+            cpu.setKeyPressed(gui.getKeyCode());
+        } else {
+            cpu.setKeyPressed(-1);
+        }
         cpu.tick();
         gui.renderGame();
     }
@@ -23,6 +30,7 @@ public class Chip8 implements Runnable {
     public void gameLoop() {
         gui = new Gui(WIDTH, HEIGHT);
         cpu = new Cpu(gui.getGameScreen());
+        cpu.attachDebugPanel(gui.getdebugPanel());
         boolean dropFrame = false;
         double currentTime = 0,
                 previousTime = System.nanoTime() / 1e9,
@@ -51,7 +59,8 @@ public class Chip8 implements Runnable {
                     romLoaded = true;
                 }
             }
-
+            gui.getdebugPanel().revalidate();
+            gui.getdebugPanel().repaint();
             if (dropFrame)
                 easeUsage();
 

@@ -7,14 +7,23 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Stack;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.tools.Tool;
 
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 import org.chip8.display.Gui;
 
 public class Cpu {
+
+    enum Status {
+        ERROR,
+        SUCCESS
+    }
+
     /**
      * 1-F (16) Variables
      * F is the carry flag
@@ -49,9 +58,14 @@ public class Cpu {
     private float soundTimer = TIMER_PERIOD;
 
     private byte[] rom;
+    private byte[] memory;
     private int[][] display;
     private boolean debug = true;
     private Stack<Integer> stack;
+    private JPanel debugPanel;
+    private int keyPressed = -1;
+
+    private boolean keyboardPoll = false;
 
     private BufferedImage gameScreen;
 
@@ -61,6 +75,23 @@ public class Cpu {
         this.gameScreen = gameScreen;
         stack = new Stack<>();
         updateGameScreen();
+    }
+
+    public void attachDebugPanel(JPanel debugPanel) {
+        this.debugPanel = debugPanel;
+    }
+
+    private void printDebug(String opcode, Status status) {
+        JLabel debugLabel = new JLabel(opcode);
+        debugLabel.setForeground(Color.RED);
+        if (status == Status.ERROR) {
+            debugLabel.setBackground(Color.RED);
+        }
+        debugPanel.add(debugLabel);
+    }
+
+    public void setKeyPressed(int keyPressed) {
+        this.keyPressed = keyPressed;
     }
 
     /**
@@ -179,7 +210,6 @@ public class Cpu {
      */
     private void subRoutine(byte argument1, byte argument2, byte argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
-        PC += 2;
         stack.push((int) PC);
         PC = address;
     }
@@ -412,7 +442,6 @@ public class Cpu {
     private void skipKeyPressed(byte argument1, byte argument2, byte argument3) {
         int keyCode = v[argument1];
         // Get most recent key pressed
-        int keyPressed = 0x0;
         if (keyCode == keyPressed) {
             PC += 2;
         }
@@ -430,7 +459,6 @@ public class Cpu {
     private void skipKeyNotPressed(byte argument1, byte argument2, byte argument3) {
         int keyCode = v[argument1];
         // Get most recent key pressed
-        int keyPressed = 0x0;
         if (keyCode != keyPressed) {
             PC += 2;
         }
@@ -452,8 +480,11 @@ public class Cpu {
      * @param x v[x]
      */
     private void waitForKeyPress(byte x) {
-        int keyPressed = 0x0;
-        v[x] = keyPressed;
+        keyboardPoll = true;
+        if (keyPressed != -1) {
+            keyboardPoll = false;
+            v[x] = keyPressed;
+        }
     }
 
     /**
@@ -509,7 +540,7 @@ public class Cpu {
     private void storeV0toVxInMemory(byte x) {
         for (int index = 0; index <= x; index++) {
             // Store v[i] in memory starting at I
-            rom[i + index] = (byte) v[index];
+            memory[i + index] = (byte) v[index];
         }
     }
 
@@ -520,7 +551,7 @@ public class Cpu {
      */
     private void readV0toVxFromMemory(byte x) {
         for (int index = 0; index <= x; index++) {
-            v[index] = rom[i + index];
+            v[index] = memory[i + index];
         }
     }
 
@@ -533,14 +564,7 @@ public class Cpu {
      */
     private void handle0xFOpcode(int instruction, byte argument1, byte argument2, byte argument3) {
 
-        /**
-         * Extract the last 2 nibbles of the instruction
-         * 0000 0000 nnnn nnnn &
-         * 0000 0000 1111 1111 << 8
-         * nnnn nnnn 0000 0000
-         * 0xPP, PP = hex value of nnnn
-         */
-        int endingNibbles = instruction & 0x00FF;
+        int endingNibbles = (instruction & 0xFF);
 
         switch (endingNibbles) {
             case 0x07:
@@ -580,13 +604,16 @@ public class Cpu {
                 break;
 
             default:
-                System.out.println("Invalid opcode : " + String.format("%04x", endingNibbles));
+
+                System.out.println("Invalid opcode : " + String.format("%02x", endingNibbles));
                 break;
         }
 
     }
 
-    private void handleOperation(byte instruction, byte argument1, byte argument2, byte argument3) {
+    private void handleOperation(int opcode, byte instruction, byte argument1, byte argument2, byte argument3) {
+        String opcodeString = String.format("%04x", opcode & 0xffff);
+
         switch (instruction) {
             case 0x0:
                 if (argument1 == 0 && argument2 == 0xE) {
@@ -601,34 +628,47 @@ public class Cpu {
                     // Call (0x0NNN)
                     // call(argument1, argument2, argument3);
                 }
+                printDebug(opcodeString, Status.SUCCESS);
                 break;
 
             case 0x1:
                 jump(argument1, argument2, argument3);
+                printDebug(opcodeString, Status.SUCCESS);
                 break;
 
             case 0x2:
                 subRoutine(argument1, argument2, argument3);
+                printDebug(opcodeString, Status.SUCCESS);
                 break;
 
             case 0x3:
                 skipEqual(argument1, argument2, argument3);
+                printDebug(opcodeString, Status.SUCCESS);
+
                 break;
 
             case 0x4:
                 skipNotEqual(argument1, argument2, argument3);
+                printDebug(opcodeString, Status.SUCCESS);
+
                 break;
 
             case 0x5:
                 skipEqual(argument1, argument2);
+                printDebug(opcodeString, Status.SUCCESS);
+
                 break;
 
             case 0x6:
                 set(argument1, argument2, argument3);
+                printDebug(opcodeString, Status.SUCCESS);
+
                 break;
 
             case 0x7:
                 add(argument1, argument2, argument3);
+                printDebug(opcodeString, Status.SUCCESS);
+
                 break;
 
             case 0x8:
@@ -637,18 +677,26 @@ public class Cpu {
 
             case 0x9:
                 skipNotEqual(argument1, argument2);
+                printDebug(opcodeString, Status.SUCCESS);
+
                 break;
 
             case 0xA:
                 setAddress(argument1, argument2, argument3);
+                printDebug(opcodeString, Status.SUCCESS);
+
                 break;
 
             case 0xB:
                 jumpTo(argument1, argument2, argument3);
+                printDebug(opcodeString, Status.SUCCESS);
+
                 break;
 
             case 0xC:
                 andRandom(argument1, argument2, argument3);
+                printDebug(opcodeString, Status.SUCCESS);
+
                 break;
 
             case 0xD:
@@ -658,43 +706,42 @@ public class Cpu {
             case 0xE:
                 if (argument2 == 0x9 && argument3 == 0xE) {
                     skipKeyPressed(argument1, argument2, argument3);
-
+                    printDebug(opcodeString, Status.SUCCESS);
                 } else if (argument2 == 0xA && argument3 == 0x1) {
                     skipKeyNotPressed(argument1, argument2, argument3);
+                    printDebug(opcodeString, Status.SUCCESS);
+
                 } else {
-                    System.out.println("Invalid opcode");
+                    printDebug(opcodeString, Status.ERROR);
                 }
 
                 break;
 
             case 0xF:
-                handle0xFOpcode(instruction, argument1, argument2, argument3);
+                handle0xFOpcode(opcode, argument1, argument2, argument3);
                 break;
 
             default:
-                System.out.println("Invalid opcode");
+                printDebug(opcodeString, Status.ERROR);
                 break;
         }
     }
 
     public void tick() {
-        int opcode = fetchOpcode();
+        updateGameScreen();
+        if (!keyboardPoll) {
+            int opcode = fetchOpcode();
+            // Extract each nibble of the 4 byte buffer
+            byte instructionCode = (byte) ((opcode & 0xF000) >> 12);
+            byte argument1 = (byte) ((opcode & 0x0F00) >> 8);
+            byte argument2 = (byte) ((opcode & 0x00F0) >> 4);
+            byte argument3 = (byte) (opcode & 0x000F);
 
-        // Extract each nibble of the 4 byte buffer
-        byte instructionCode = (byte) ((opcode & 0xF000) >> 12);
-        byte argument1 = (byte) ((opcode & 0x0F00) >> 8);
-        byte argument2 = (byte) ((opcode & 0x00F0) >> 4);
-        byte argument3 = (byte) (opcode & 0x000F);
-
-        // Handle operation and execute associated instruction
-        handleOperation(instructionCode, argument1, argument2, argument3);
-
-        String opcodeString = String.format("%04x", opcode & 0xffff);
-
-        if (debug)
-            System.out.println(opcodeString + "\t" + String.format("%01x", instructionCode) + "\t"
-                    + String.format("%01x", argument1) + "\t" + String.format("%01x", argument2) + "\t"
-                    + String.format("%01x", argument3));
+            // Handle operation and execute associated instruction
+            handleOperation(opcode, instructionCode, argument1, argument2, argument3);
+        } else {
+            System.out.println("Waiting for key press");
+        }
     }
 
     /**
@@ -707,6 +754,7 @@ public class Cpu {
             System.out.println("File size: " + inputStream.available() + " bytes");
             int romSize = inputStream.available();
             rom = new byte[romSize];
+            memory = new byte[4096]; // 4KB Memory
             inputStream.read(rom);
             inputStream.close();
         } catch (Exception e) {
