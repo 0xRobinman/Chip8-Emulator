@@ -105,6 +105,10 @@ public class Gui extends JFrame {
         return loadedRom;
     }
 
+    public BufferedImage getGameScreen() {
+        return gameScreen;
+    }
+
     public Gui(int width, int height) {
         loadedRom = null;
         this.setTitle("Chip8 Emulator - 0xRobinman");

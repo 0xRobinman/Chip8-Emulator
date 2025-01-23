@@ -22,7 +22,7 @@ public class Chip8 implements Runnable {
     @SuppressWarnings("empty-statement")
     public void gameLoop() {
         gui = new Gui(WIDTH, HEIGHT);
-        cpu = new Cpu(gui);
+        cpu = new Cpu(gui.getGameScreen());
         boolean dropFrame = false;
         double currentTime = 0,
                 previousTime = System.nanoTime() / 1e9,
