@@ -64,7 +64,7 @@ public class Cpu {
 
     private String opcodeString;
     private boolean pause = false;
-    private byte[] rom, memory;
+    private int[] memory;
     private boolean debug = true;
     private Stack<Integer> stack;
     private int keyPressed = -1;
@@ -129,8 +129,8 @@ public class Cpu {
      * @param n2
      * @return
      */
-    private byte convertTo8Bit(byte n, byte n2) {
-        return (byte) ((n << 4) | n2);
+    private int convertTo8Bit(int n, int n2) {
+        return ((n << 4) | n2);
     }
 
     /**
@@ -141,8 +141,8 @@ public class Cpu {
      * @param n3
      * @return
      */
-    private int convertToAddress(byte n, byte n2, byte n3) {
-        return (int) ((n << 8) | (n2 << 4) | n3);
+    private int convertToAddress(int n, int n2, int n3) {
+        return ((n << 8) | (n2 << 4) | n3);
     }
 
     private void updateGameScreen() {
@@ -160,7 +160,7 @@ public class Cpu {
     }
 
     /**
-     * Fetch 16 bit (2 byte) opcode
+     * Fetch 16 bit (2 int) opcode
      * 
      * @return
      */
@@ -172,7 +172,7 @@ public class Cpu {
         int opcodeUpperByte = memory[PC] & 0xFF;
         int opcodeLowerByte = memory[PC + 1] & 0xFF;
 
-        opcode = (int) ((opcodeUpperByte << 8) | opcodeLowerByte);
+        opcode = ((opcodeUpperByte << 8) | opcodeLowerByte);
 
         PC += 2;
 
@@ -212,7 +212,7 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void call(byte argument1, byte argument2, byte argument3) {
+    private void call(int argument1, int argument2, int argument3) {
         // NOP
     }
 
@@ -220,7 +220,7 @@ public class Cpu {
      * Jumps to NNN
      * 0x1NNN
      */
-    private void jump(byte argument1, byte argument2, byte argument3) {
+    private void jump(int argument1, int argument2, int argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
         printDebug(opcodeString, String.format("JMP $%02x", address));
         PC = address;
@@ -234,11 +234,11 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void subRoutine(byte argument1, byte argument2, byte argument3) {
+    private void subRoutine(int argument1, int argument2, int argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
         printDebug(opcodeString, String.format("SUB $%02x", address));
 
-        stack.push((int) PC);
+        stack.push(PC);
         PC = address;
     }
 
@@ -251,9 +251,9 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void skipEqual(byte argument1, byte argument2, byte argument3) {
+    private void skipEqual(int argument1, int argument2, int argument3) {
 
-        byte nn = convertTo8Bit(argument2, argument3);
+        int nn = convertTo8Bit(argument2, argument3);
         printDebug(opcodeString, String.format("SKP $%02x == $%02x", nn, v[argument1]));
 
         if (v[argument1] == nn) {
@@ -271,9 +271,9 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void skipNotEqual(byte argument1, byte argument2, byte argument3) {
+    private void skipNotEqual(int argument1, int argument2, int argument3) {
 
-        byte nn = convertTo8Bit(argument2, argument3);
+        int nn = convertTo8Bit(argument2, argument3);
         printDebug(opcodeString, String.format("SKP $%02x != $%02x", v[argument1], nn));
 
         if (v[argument1] != nn) {
@@ -286,16 +286,14 @@ public class Cpu {
     /**
      * Skips instruction if equal
      * if v[x] == v[y]
-     * 0x5NNN
+     * 0x5NN0
      * 
      * @param argument1
      * @param argument2
      */
-    private void skipEqual(byte argument1, byte argument2) {
+    private void skipEqual(int argument1, int argument2) {
         printDebug(opcodeString, String.format("SKP $%02x == $%02x", v[argument1], v[argument2]));
-
         if (v[argument1] == v[argument2]) {
-            // Skip
             PC += 2;
         }
     }
@@ -308,8 +306,8 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void set(byte argument1, byte argument2, byte argument3) {
-        byte nn = convertTo8Bit(argument2, argument3);
+    private void set(int argument1, int argument2, int argument3) {
+        int nn = convertTo8Bit(argument2, argument3);
         printDebug(opcodeString, String.format("SET $v[%02x] = $%02x", argument1, nn));
 
         v[argument1] = nn;
@@ -323,8 +321,8 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void add(byte argument1, byte argument2, byte argument3) {
-        byte nn = convertTo8Bit(argument2, argument3);
+    private void add(int argument1, int argument2, int argument3) {
+        int nn = convertTo8Bit(argument2, argument3);
         printDebug(opcodeString, String.format("ADD $v[%02x] = $%02x", argument1, nn));
 
         v[argument1] += nn;
@@ -338,7 +336,7 @@ public class Cpu {
      * @param y
      * @param n
      */
-    private void handle0x8Opcode(byte x, byte y, byte n) {
+    private void handle0x8Opcode(int x, int y, int n) {
 
         switch (n) {
             case 0x0:
@@ -368,40 +366,41 @@ public class Cpu {
             case 0x4:
                 int sum = v[x] + v[y];
                 v[0xF] = (sum > 0xFF) ? 1 : 0;
-                v[x] = sum;
+                v[x] = sum & 0xFF;
                 printDebug(opcodeString, String.format("ADD $v[%02x] = $v[%02x]", x, y));
 
                 break;
 
             case 0x5:
-                v[0xF] = (v[x] > v[y]) ? 1 : 0;
-                v[x] -= v[y];
+                int vx = v[x] & 0xFF;
+                int vy = v[y] & 0xFF;
+
+                v[0xF] = (vx >= vy) ? 1 : 0;
+
+                v[x] = (vx - vy) & 0xFF;
                 printDebug(opcodeString, String.format("MIN $v[%02x] = $v[%02x]", x, y));
 
                 break;
 
             case 0x6:
                 v[0xF] = v[x] & 1;
-                v[x] >>= 1;
+                v[x] = (v[x] >> 1) & 0xFF;
                 printDebug(opcodeString, String.format("SRL $v[%02x] >> 1", x));
 
                 break;
 
             case 0x7:
-                // V[f] flag is set to 1 if !Borrow
-                if (v[y] > v[x]) {
-                    v[0xf] = 0;
-                } else {
-                    v[0xf] = 1;
-                }
-                v[x] = v[y] - v[x];
+
+                v[0xF] = (v[y] >= v[x]) ? 1 : 0; // No Borrow, flag = 1
+
+                v[x] = (v[y] - v[x]) & 0xFF;
                 printDebug(opcodeString, String.format("MIN $v[%02x] = $v[%02x]", y, x));
 
                 break;
 
             case 0xE:
                 v[0xF] = (v[x] & 0x80) >> 7;
-                v[x] <<= 1;
+                v[x] = (v[x] << 1) & 0xFF;
                 printDebug(opcodeString, String.format("SLL $v[%02x] << 1", x));
 
                 break;
@@ -420,7 +419,7 @@ public class Cpu {
      * @param argument1
      * @param argument2
      */
-    private void skipNotEqual(byte argument1, byte argument2) {
+    private void skipNotEqual(int argument1, int argument2) {
         printDebug(opcodeString, String.format("SKP $v[%02x] != $v[%02x]", argument1, argument2));
         if (v[argument1] != v[argument2]) {
             // Skip
@@ -436,10 +435,10 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void setAddress(byte argument1, byte argument2, byte argument3) {
+    private void setAddress(int argument1, int argument2, int argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
         printDebug(opcodeString, String.format("SET I == $%02x", address));
-        i = (int) (address & I_MASK);
+        i = (address & I_MASK);
     }
 
     /**
@@ -450,7 +449,7 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void jumpTo(byte argument1, byte argument2, byte argument3) {
+    private void jumpTo(int argument1, int argument2, int argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
         printDebug(opcodeString, String.format("JMP $%02x", address));
         PC = v[0] + address;
@@ -464,8 +463,8 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void andRandom(byte argument1, byte argument2, byte argument3) {
-        byte nn = convertTo8Bit(argument2, argument3);
+    private void andRandom(int argument1, int argument2, int argument3) {
+        int nn = convertTo8Bit(argument2, argument3);
         printDebug(opcodeString, String.format("RAND $v[%02x] = $%02x", argument1, nn));
         v[argument1] = (int) (Math.random() * 255) & nn;
     }
@@ -478,7 +477,7 @@ public class Cpu {
      * @param y
      * @param height
      */
-    private void draw(byte x, byte y, byte height) {
+    private void draw(int x, int y, int height) {
         printDebug(opcodeString, String.format("DRAW $v[%02x] $v[%02x] $%02x", x, y, height));
         int xCo = v[x];
         int yCo = v[y];
@@ -486,7 +485,7 @@ public class Cpu {
         v[0xf] = 0x0;
 
         for (int bitY = 0; bitY < height; bitY++) {
-            byte sprite = memory[i + bitY];
+            int sprite = memory[i + bitY] & 0xFF;
             for (int bitX = 0; bitX < width; bitX++) {
 
                 int pixel = (sprite >> (7 - bitX)) & 1;
@@ -511,7 +510,7 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void skipKeyPressed(byte argument1, byte argument2, byte argument3) {
+    private void skipKeyPressed(int argument1, int argument2, int argument3) {
         int keyCode = v[argument1];
         printDebug(opcodeString, String.format("SKP KEY == $%02x", argument2));
 
@@ -530,7 +529,7 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void skipKeyNotPressed(byte argument1, byte argument2, byte argument3) {
+    private void skipKeyNotPressed(int argument1, int argument2, int argument3) {
         int keyCode = v[argument1];
         printDebug(opcodeString, String.format("SKP KEY != $%02x", argument2));
 
@@ -545,7 +544,7 @@ public class Cpu {
      * 
      * @param x
      */
-    private void setvxTimerDelay(byte x) {
+    private void setvxTimerDelay(int x) {
         v[x] = delayTimer;
         printDebug(opcodeString, String.format("SET TIMER $v[%02x] = $%02x", x, delayTimer));
 
@@ -557,7 +556,7 @@ public class Cpu {
      * 
      * @param x v[x]
      */
-    private void waitForKeyPress(byte x) {
+    private void waitForKeyPress(int x) {
         printDebug(opcodeString, String.format("WAIT KEY_PRESS"));
 
         keyboardPoll = true;
@@ -572,7 +571,7 @@ public class Cpu {
      * 
      * @param x v[x]
      */
-    private void setDelayTimer(byte x) {
+    private void setDelayTimer(int x) {
         printDebug(opcodeString, String.format("SET TIME = $v[%02x]", x));
 
         delayTimer = v[x];
@@ -583,7 +582,7 @@ public class Cpu {
      * 
      * @param x v[x]
      */
-    private void setSoundTimer(byte x) {
+    private void setSoundTimer(int x) {
         printDebug(opcodeString, String.format("SET SOUND = $v[%02x]", x));
         soundTimer = v[x];
     }
@@ -593,7 +592,7 @@ public class Cpu {
      * 
      * @param x
      */
-    private void iaddVx(byte x) {
+    private void iaddVx(int x) {
         printDebug(opcodeString, String.format("ADD I + $v[%02x]", x));
         i += v[x];
     }
@@ -603,7 +602,7 @@ public class Cpu {
      * 
      * @param x v[x]
      */
-    private void setiSpriteLocation(byte x) {
+    private void setiSpriteLocation(int x) {
         printDebug(opcodeString, String.format("SPRITE"));
         int value = v[x] & 0xFF;
         i = 0x000 + (value * 5);
@@ -614,16 +613,16 @@ public class Cpu {
      * 
      * @param x v[x]
      */
-    private void setBcd(byte x) {
+    private void setBcd(int x) {
         printDebug(opcodeString, String.format("BCD"));
-        byte value = (byte) v[x];
-        byte hundreads = (byte) (value / 100);
-        byte tens = (byte) ((value / 10) % 10);
-        byte ones = (byte) (value % 10);
+        int value = v[x] & 0xFF;
+        int hundreds = value / 100;
+        int tens = (value / 10) % 10;
+        int ones = value % 10;
 
-        memory[i] = hundreads;
-        memory[i + 1] = tens;
-        memory[i + 2] = ones;
+        memory[i] = (int) hundreds;
+        memory[i + 1] = (int) tens;
+        memory[i + 2] = (int) ones;
     }
 
     /**
@@ -631,12 +630,12 @@ public class Cpu {
      * 
      * @param x v[x]
      */
-    private void storeV0toVxInMemory(byte x) {
+    private void storeV0toVxInMemory(int x) {
         printDebug(opcodeString, String.format("STORE v[0] .. $v[%02x]", x));
 
         for (int index = 0; index <= x; index++) {
             // Store v[i] in memory starting at I
-            memory[i + index] = (byte) v[index];
+            memory[i + index] = v[index];
         }
     }
 
@@ -645,7 +644,7 @@ public class Cpu {
      * 
      * @param x v[x]
      */
-    private void readV0toVxFromMemory(byte x) {
+    private void readV0toVxFromMemory(int x) {
         printDebug(opcodeString, String.format("READ I = %02x ; v[0] .. $v[%02x]", i, x));
 
         for (int index = 0; index <= x; index++) {
@@ -660,7 +659,7 @@ public class Cpu {
      * @param argument2
      * @param argument3
      */
-    private void handle0xFOpcode(int instruction, byte argument1, byte argument2, byte argument3) {
+    private void handle0xFOpcode(int instruction, int argument1, int argument2, int argument3) {
 
         int endingNibbles = (instruction & 0xFF);
 
@@ -709,7 +708,7 @@ public class Cpu {
 
     }
 
-    private void handleOperation(int opcode, byte instruction, byte argument1, byte argument2, byte argument3) {
+    private void handleOperation(int opcode, int instruction, int argument1, int argument2, int argument3) {
         opcodeString = String.format("%04x", opcode & 0xffff);
 
         switch (instruction) {
@@ -806,11 +805,11 @@ public class Cpu {
         updateGameScreen();
         if (!keyboardPoll && !pause) {
             int opcode = fetchOpcode();
-            // Extract each nibble of the 4 byte buffer
-            byte instructionCode = (byte) ((opcode & 0xF000) >> 12);
-            byte argument1 = (byte) ((opcode & 0x0F00) >> 8);
-            byte argument2 = (byte) ((opcode & 0x00F0) >> 4);
-            byte argument3 = (byte) (opcode & 0x000F);
+            // Extract each nibble of the 4 int buffer
+            int instructionCode = ((opcode & 0xF000) >> 12) & 0xFF;
+            int argument1 = ((opcode & 0x0F00) >> 8) & 0xFF;
+            int argument2 = ((opcode & 0x00F0) >> 4) & 0xFF;
+            int argument3 = (opcode & 0x000F) & 0xFF;
 
             // Handle operation and execute associated instruction
             handleOperation(opcode, instructionCode, argument1, argument2, argument3);
@@ -837,12 +836,20 @@ public class Cpu {
         try (InputStream inputStream = new FileInputStream(file)) {
             System.out.println("File size: " + inputStream.available() + " bytes");
 
-            memory = new byte[4096];
-            rom = new byte[inputStream.available()];
+            memory = new int[4096];
+            byte[] rom = new byte[inputStream.available()];
 
             inputStream.read(rom);
 
-            System.arraycopy(rom, 0, memory, 0x200, rom.length);
+            /**
+             * To any dev reading this:
+             * Due to persistent problems with how Java handles bytes, everything is now int
+             * Thanks.
+             */
+
+            for (int i = 0; i < rom.length; i++) {
+                memory[i + 0x200] = rom[i] & 0xFF;
+            }
 
             inputStream.close();
         } catch (Exception e) {
