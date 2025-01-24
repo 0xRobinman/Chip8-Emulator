@@ -1,7 +1,5 @@
 package org.chip8.chip8;
 
-import javax.swing.JPanel;
-
 import org.chip8.cpu.Cpu;
 import org.chip8.display.Gui;
 
@@ -22,7 +20,13 @@ public class Chip8 implements Runnable {
         } else {
             cpu.setKeyPressed(-1);
         }
-        cpu.tick();
+
+        if (gui.getPause() != cpu.getPause()) {
+            cpu.setPause(gui.getPause());
+        }
+        for (int i = 0; i < 11; i++)
+            cpu.tick();
+        cpu.handleTimers();
         gui.renderGame();
     }
 
@@ -60,6 +64,7 @@ public class Chip8 implements Runnable {
                 }
             }
             gui.renderDebug();
+
             if (dropFrame)
                 easeUsage();
 
@@ -68,6 +73,7 @@ public class Chip8 implements Runnable {
 
     private void easeUsage() {
         try {
+
             Thread.sleep(1);
         } catch (InterruptedException e) {
         }

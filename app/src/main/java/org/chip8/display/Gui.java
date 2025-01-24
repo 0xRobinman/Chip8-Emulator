@@ -9,15 +9,18 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
@@ -52,10 +55,11 @@ public class Gui extends JFrame implements KeyListener {
     private JLabel debugLines[];
     private JPanel debugPanel;
     private int currentKeyCode;
-    private boolean keyPressed = false;
+    private boolean keyPressed = false, pause = false;
     private LinkedList<String> debugText;
     private File debugFile;
     private Writer debugWriter;
+    private byte[] fontSet;
 
     public int getKeyCode() {
         return currentKeyCode;
@@ -63,6 +67,24 @@ public class Gui extends JFrame implements KeyListener {
 
     public boolean isKeyPressed() {
         return keyPressed;
+    }
+
+    public boolean getPause() {
+        return pause;
+    }
+
+    private void writeSpriteData() {
+        try (InputStream inputStream = new FileInputStream(loadedRom)) {
+            int romSize = inputStream.available();
+            fontSet = new byte[0x80];
+            if (fontSet.length <= romSize) {
+                inputStream.read(fontSet);
+                inputStream.close();
+                System.out.println("Sprites read");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private JMenuBar getMenu() {
@@ -74,9 +96,26 @@ public class Gui extends JFrame implements KeyListener {
 
         openRom.addActionListener((ActionEvent e) -> {
             loadedRom = getInputFile();
+            if (loadedRom != null) {
+                writeSpriteData();
+            }
         });
+        JMenu flowControl = new JMenu("Flow control");
+
+        JMenuItem playButton = new JMenuItem("Play");
+        JMenuItem pauseButton = new JMenuItem("Pause");
+
+        playButton.addActionListener((ActionEvent e) -> {
+            pause = false;
+        });
+        pauseButton.addActionListener((ActionEvent e) -> {
+            pause = true;
+        });
+        flowControl.add(playButton);
+        flowControl.add(pauseButton);
 
         menubar.add(file);
+        menubar.add(flowControl);
         return menubar;
     }
 
@@ -162,6 +201,7 @@ public class Gui extends JFrame implements KeyListener {
 
         if (fileSelect.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             romInserted = true;
+
             return fileSelect.getSelectedFile();
         }
         return null;
@@ -214,7 +254,7 @@ public class Gui extends JFrame implements KeyListener {
         gameCanvas = createCanvas(width, height);
         gameScreen = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         gameCanvas.addKeyListener(this);
-        debugCanvas = createCanvas(200, height);
+        debugCanvas = createCanvas(250, height);
 
         this.setPreferredSize(new Dimension(width * SCALE, height * SCALE));
         this.setSize(new Dimension(width * SCALE, height * SCALE));
@@ -226,7 +266,6 @@ public class Gui extends JFrame implements KeyListener {
         panel.add(gameCanvas, BorderLayout.CENTER);
         panel.add(debugCanvas, BorderLayout.EAST);
         this.add(panel);
-        // this.add(gameCanvas);
         this.pack();
         this.setJMenuBar(getMenu());
         this.setLocationRelativeTo(null);

@@ -50,15 +50,21 @@ public class Cpu {
      * 60hz Timer roughly equals 16.67ms
      * If sound time is != 0, a sound is played
      */
-    private final float TIMER_PERIOD = 16.67f;
-    private float delayTimer = TIMER_PERIOD;
-    private float soundTimer = TIMER_PERIOD;
+    private int delayTimer = 0;
+    private int soundTimer = 0;
+
+    /**
+     * Frame buffer represetns the screen
+     * it will determined weather pixel (x,y) is on or off
+     * 
+     */
+    private int[][] frameBuffer;
+    private int PIXEL_ON = 0xFFFFFF;
+    private int PIXEL_OFF = 0x000000;
 
     private String opcodeString;
-
-    private byte[] rom;
-    private byte[] memory;
-    private int[][] display;
+    private boolean pause = false;
+    private byte[] rom, memory;
     private boolean debug = true;
     private Stack<Integer> stack;
     private int keyPressed = -1;
@@ -70,10 +76,23 @@ public class Cpu {
 
     public Cpu(BufferedImage gameScreen) {
         v = new int[16];
-        display = new int[64][32];
+        frameBuffer = new int[64][32];
         this.gameScreen = gameScreen;
         stack = new Stack<>();
         updateGameScreen();
+    }
+
+    public void handleTimers() {
+        if (soundTimer > 0) {
+            soundTimer--;
+            if (soundTimer == 0) {
+                beep();
+            }
+        }
+        if (delayTimer > 0) {
+            delayTimer--;
+        }
+
     }
 
     public void attachDebugText(LinkedList<String> debugText) {
@@ -127,15 +146,17 @@ public class Cpu {
     }
 
     private void updateGameScreen() {
-        for (int i = 0; i < display.length; i++) {
-            for (int j = 0; j < display[i].length; j++) {
-                if (display[i][j] == 0) {
-                    gameScreen.setRGB(i, j, 0x000000);
+
+        for (int x = 0; x < frameBuffer.length; x++) {
+            for (int y = 0; y < frameBuffer[x].length; y++) {
+                if (frameBuffer[x][y] == 1) {
+                    gameScreen.setRGB(x, y, PIXEL_ON);
                 } else {
-                    gameScreen.setRGB(i, j, 0xFFFFFF);
+                    gameScreen.setRGB(x, y, PIXEL_OFF);
                 }
             }
         }
+
     }
 
     /**
@@ -148,8 +169,8 @@ public class Cpu {
         int opcode;
 
         // Since Chip8 is big endian
-        int opcodeUpperByte = rom[PC] & 0xFF;
-        int opcodeLowerByte = rom[PC + 1] & 0xFF;
+        int opcodeUpperByte = memory[PC] & 0xFF;
+        int opcodeLowerByte = memory[PC + 1] & 0xFF;
 
         opcode = (int) ((opcodeUpperByte << 8) | opcodeLowerByte);
 
@@ -163,9 +184,9 @@ public class Cpu {
      * 0x00E0
      */
     private void clearDisplay() {
-        for (int i = 0; i < display.length; i++) {
-            for (int j = 0; j < display[i].length; j++) {
-                display[i][j] = 0x00;
+        for (int x = 0; x < 64; x++) {
+            for (int y = 0; y < 32; y++) {
+                frameBuffer[x][y] = PIXEL_OFF;
             }
         }
         printDebug(opcodeString, "CLS");
@@ -345,25 +366,22 @@ public class Cpu {
                 break;
 
             case 0x4:
-                v[x] += v[y];
+                int sum = v[x] + v[y];
+                v[0xF] = (sum > 0xFF) ? 1 : 0;
+                v[x] = sum;
                 printDebug(opcodeString, String.format("ADD $v[%02x] = $v[%02x]", x, y));
 
                 break;
 
             case 0x5:
+                v[0xF] = (v[x] > v[y]) ? 1 : 0;
                 v[x] -= v[y];
                 printDebug(opcodeString, String.format("MIN $v[%02x] = $v[%02x]", x, y));
 
                 break;
 
             case 0x6:
-                // If the least significant bit of v[x] is 1, set v[0xF] to 1
-                if ((v[x] & -v[x]) == 1) {
-                    // v[f] is also used as a flag
-                    v[0xf] = 1;
-                } else {
-                    v[0xf] = 0;
-                }
+                v[0xF] = v[x] & 1;
                 v[x] >>= 1;
                 printDebug(opcodeString, String.format("SRL $v[%02x] >> 1", x));
 
@@ -382,12 +400,7 @@ public class Cpu {
                 break;
 
             case 0xE:
-                // Set v[f] to 1 if most sig bit is 1
-                if ((v[x] & 0x80) == 0x80) {
-                    v[0xf] = 1;
-                } else {
-                    v[0xf] = 0;
-                }
+                v[0xF] = (v[x] & 0x80) >> 7;
                 v[x] <<= 1;
                 printDebug(opcodeString, String.format("SLL $v[%02x] << 1", x));
 
@@ -408,9 +421,7 @@ public class Cpu {
      * @param argument2
      */
     private void skipNotEqual(byte argument1, byte argument2) {
-
         printDebug(opcodeString, String.format("SKP $v[%02x] != $v[%02x]", argument1, argument2));
-
         if (v[argument1] != v[argument2]) {
             // Skip
             PC += 2;
@@ -428,7 +439,6 @@ public class Cpu {
     private void setAddress(byte argument1, byte argument2, byte argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
         printDebug(opcodeString, String.format("SET I == $%02x", address));
-
         i = (int) (address & I_MASK);
     }
 
@@ -464,12 +474,32 @@ public class Cpu {
      * Draw to the screen. v[x], v[y], n
      * 0xDXYN
      * 
-     * @param argument1
-     * @param argument2
-     * @param argument3
+     * @param x
+     * @param y
+     * @param height
      */
-    private void draw(byte argument1, byte argument2, byte argument3) {
-        printDebug(opcodeString, "DRAW");
+    private void draw(byte x, byte y, byte height) {
+        printDebug(opcodeString, String.format("DRAW $v[%02x] $v[%02x] $%02x", x, y, height));
+        int xCo = v[x];
+        int yCo = v[y];
+        int width = 8;
+        v[0xf] = 0x0;
+
+        for (int bitY = 0; bitY < height; bitY++) {
+            byte sprite = memory[i + bitY];
+            for (int bitX = 0; bitX < width; bitX++) {
+
+                int pixel = (sprite >> (7 - bitX)) & 1;
+                if (pixel == 1) {
+                    int wrapAroundX = (xCo + bitX) % 64;
+                    int wrapAroundY = (yCo + bitY) % 32;
+                    if (frameBuffer[wrapAroundX][wrapAroundY] == 1) {
+                        v[0xf] = 1;
+                    }
+                    frameBuffer[wrapAroundX][wrapAroundY] ^= 1;
+                }
+            }
+        }
 
     }
 
@@ -516,8 +546,8 @@ public class Cpu {
      * @param x
      */
     private void setvxTimerDelay(byte x) {
-        v[x] = (int) delayTimer;
-        printDebug(opcodeString, String.format("SET $v[%02x] = $%02x", x, delayTimer));
+        v[x] = delayTimer;
+        printDebug(opcodeString, String.format("SET TIMER $v[%02x] = $%02x", x, delayTimer));
 
     }
 
@@ -565,7 +595,6 @@ public class Cpu {
      */
     private void iaddVx(byte x) {
         printDebug(opcodeString, String.format("ADD I + $v[%02x]", x));
-
         i += v[x];
     }
 
@@ -575,8 +604,9 @@ public class Cpu {
      * @param x v[x]
      */
     private void setiSpriteLocation(byte x) {
-        printDebug(opcodeString, String.format("SPRITE (unimplemented)"));
-
+        printDebug(opcodeString, String.format("SPRITE"));
+        int value = v[x] & 0xFF;
+        i = 0x000 + (value * 5);
     }
 
     /**
@@ -585,8 +615,15 @@ public class Cpu {
      * @param x v[x]
      */
     private void setBcd(byte x) {
-        printDebug(opcodeString, String.format("BCD (unimplemented)"));
+        printDebug(opcodeString, String.format("BCD"));
+        byte value = (byte) v[x];
+        byte hundreads = (byte) (value / 100);
+        byte tens = (byte) ((value / 10) % 10);
+        byte ones = (byte) (value % 10);
 
+        memory[i] = hundreads;
+        memory[i + 1] = tens;
+        memory[i + 2] = ones;
     }
 
     /**
@@ -767,7 +804,7 @@ public class Cpu {
 
     public void tick() {
         updateGameScreen();
-        if (!keyboardPoll) {
+        if (!keyboardPoll && !pause) {
             int opcode = fetchOpcode();
             // Extract each nibble of the 4 byte buffer
             byte instructionCode = (byte) ((opcode & 0xF000) >> 12);
@@ -777,9 +814,18 @@ public class Cpu {
 
             // Handle operation and execute associated instruction
             handleOperation(opcode, instructionCode, argument1, argument2, argument3);
-        } else {
-            System.out.println("Waiting for key press");
+
+            // Handle the timers
+            handleTimers();
         }
+    }
+
+    public boolean getPause() {
+        return pause;
+    }
+
+    public void setPause(boolean pause) {
+        this.pause = pause;
     }
 
     /**
@@ -790,10 +836,14 @@ public class Cpu {
     public void loadRom(File file) {
         try (InputStream inputStream = new FileInputStream(file)) {
             System.out.println("File size: " + inputStream.available() + " bytes");
-            int romSize = inputStream.available();
-            rom = new byte[romSize];
-            memory = new byte[4096]; // 4KB Memory
+
+            memory = new byte[4096];
+            rom = new byte[inputStream.available()];
+
             inputStream.read(rom);
+
+            System.arraycopy(rom, 0, memory, 0x200, rom.length);
+
             inputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
