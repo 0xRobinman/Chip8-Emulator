@@ -5,17 +5,14 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.LinkedList;
 import java.util.Stack;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.tools.Tool;
 
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
-
-import org.chip8.display.Gui;
 
 public class Cpu {
 
@@ -57,13 +54,15 @@ public class Cpu {
     private float delayTimer = TIMER_PERIOD;
     private float soundTimer = TIMER_PERIOD;
 
+    private String opcodeString;
+
     private byte[] rom;
     private byte[] memory;
     private int[][] display;
     private boolean debug = true;
     private Stack<Integer> stack;
-    private JPanel debugPanel;
     private int keyPressed = -1;
+    private LinkedList<String> debugText;
 
     private boolean keyboardPoll = false;
 
@@ -77,17 +76,20 @@ public class Cpu {
         updateGameScreen();
     }
 
-    public void attachDebugPanel(JPanel debugPanel) {
-        this.debugPanel = debugPanel;
+    public void attachDebugText(LinkedList<String> debugText) {
+        this.debugText = debugText;
     }
 
-    private void printDebug(String opcode, Status status) {
-        JLabel debugLabel = new JLabel(opcode);
-        debugLabel.setForeground(Color.RED);
-        if (status == Status.ERROR) {
-            debugLabel.setBackground(Color.RED);
-        }
-        debugPanel.add(debugLabel);
+    /**
+     * Prints debug text to screen
+     * $PC $opcode ?faluire
+     * 
+     * @param opcode
+     * @param status
+     */
+    private void printDebug(String opcode, String description) {
+        String programCounter = String.format("%02x", PC);
+        debugText.add(programCounter + " " + opcode + " " + description);
     }
 
     public void setKeyPressed(int keyPressed) {
@@ -166,6 +168,7 @@ public class Cpu {
                 display[i][j] = 0x00;
             }
         }
+        printDebug(opcodeString, "CLS");
         updateGameScreen();
     }
 
@@ -176,6 +179,7 @@ public class Cpu {
     private void returnFromSubRoutine() {
         // Get the address from the top of the stack
         int subRoutineAddress = stack.pop();
+        printDebug(opcodeString, String.format("RET $%02x", subRoutineAddress));
         PC = subRoutineAddress;
     }
 
@@ -197,6 +201,7 @@ public class Cpu {
      */
     private void jump(byte argument1, byte argument2, byte argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
+        printDebug(opcodeString, String.format("JMP $%02x", address));
         PC = address;
     }
 
@@ -210,6 +215,8 @@ public class Cpu {
      */
     private void subRoutine(byte argument1, byte argument2, byte argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
+        printDebug(opcodeString, String.format("SUB $%02x", address));
+
         stack.push((int) PC);
         PC = address;
     }
@@ -226,6 +233,7 @@ public class Cpu {
     private void skipEqual(byte argument1, byte argument2, byte argument3) {
 
         byte nn = convertTo8Bit(argument2, argument3);
+        printDebug(opcodeString, String.format("SKP $%02x == $%02x", nn, v[argument1]));
 
         if (v[argument1] == nn) {
             // Skip
@@ -245,6 +253,8 @@ public class Cpu {
     private void skipNotEqual(byte argument1, byte argument2, byte argument3) {
 
         byte nn = convertTo8Bit(argument2, argument3);
+        printDebug(opcodeString, String.format("SKP $%02x != $%02x", v[argument1], nn));
+
         if (v[argument1] != nn) {
             // Skip
             PC += 2;
@@ -261,6 +271,8 @@ public class Cpu {
      * @param argument2
      */
     private void skipEqual(byte argument1, byte argument2) {
+        printDebug(opcodeString, String.format("SKP $%02x == $%02x", v[argument1], v[argument2]));
+
         if (v[argument1] == v[argument2]) {
             // Skip
             PC += 2;
@@ -277,6 +289,8 @@ public class Cpu {
      */
     private void set(byte argument1, byte argument2, byte argument3) {
         byte nn = convertTo8Bit(argument2, argument3);
+        printDebug(opcodeString, String.format("SET $v[%02x] = $%02x", argument1, nn));
+
         v[argument1] = nn;
     }
 
@@ -290,6 +304,8 @@ public class Cpu {
      */
     private void add(byte argument1, byte argument2, byte argument3) {
         byte nn = convertTo8Bit(argument2, argument3);
+        printDebug(opcodeString, String.format("ADD $v[%02x] = $%02x", argument1, nn));
+
         v[argument1] += nn;
     }
 
@@ -306,26 +322,38 @@ public class Cpu {
         switch (n) {
             case 0x0:
                 v[x] = v[y];
+                printDebug(opcodeString, String.format("SET $v[%02x] = $v[%02x]", x, y));
+
                 break;
 
             case 0x1:
                 v[x] |= v[y];
+                printDebug(opcodeString, String.format("OR $v[%02x] = $v[%02x]", x, y));
+
                 break;
 
             case 0x2:
                 v[x] &= v[y];
+                printDebug(opcodeString, String.format("AND $v[%02x] = $v[%02x]", x, y));
+
                 break;
 
             case 0x3:
                 v[x] ^= v[y];
+                printDebug(opcodeString, String.format("XOR $v[%02x] = $v[%02x]", x, y));
+
                 break;
 
             case 0x4:
                 v[x] += v[y];
+                printDebug(opcodeString, String.format("ADD $v[%02x] = $v[%02x]", x, y));
+
                 break;
 
             case 0x5:
                 v[x] -= v[y];
+                printDebug(opcodeString, String.format("MIN $v[%02x] = $v[%02x]", x, y));
+
                 break;
 
             case 0x6:
@@ -337,6 +365,8 @@ public class Cpu {
                     v[0xf] = 0;
                 }
                 v[x] >>= 1;
+                printDebug(opcodeString, String.format("SRL $v[%02x] >> 1", x));
+
                 break;
 
             case 0x7:
@@ -347,6 +377,8 @@ public class Cpu {
                     v[0xf] = 1;
                 }
                 v[x] = v[y] - v[x];
+                printDebug(opcodeString, String.format("MIN $v[%02x] = $v[%02x]", y, x));
+
                 break;
 
             case 0xE:
@@ -357,10 +389,12 @@ public class Cpu {
                     v[0xf] = 0;
                 }
                 v[x] <<= 1;
+                printDebug(opcodeString, String.format("SLL $v[%02x] << 1", x));
+
                 break;
 
             default:
-                System.out.println("Invalid opcode");
+                printDebug(opcodeString, String.format("Unknown opcode"));
                 break;
         }
 
@@ -374,6 +408,9 @@ public class Cpu {
      * @param argument2
      */
     private void skipNotEqual(byte argument1, byte argument2) {
+
+        printDebug(opcodeString, String.format("SKP $v[%02x] != $v[%02x]", argument1, argument2));
+
         if (v[argument1] != v[argument2]) {
             // Skip
             PC += 2;
@@ -390,6 +427,8 @@ public class Cpu {
      */
     private void setAddress(byte argument1, byte argument2, byte argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
+        printDebug(opcodeString, String.format("SET I == $%02x", address));
+
         i = (int) (address & I_MASK);
     }
 
@@ -403,6 +442,7 @@ public class Cpu {
      */
     private void jumpTo(byte argument1, byte argument2, byte argument3) {
         int address = convertToAddress(argument1, argument2, argument3);
+        printDebug(opcodeString, String.format("JMP $%02x", address));
         PC = v[0] + address;
     }
 
@@ -416,6 +456,7 @@ public class Cpu {
      */
     private void andRandom(byte argument1, byte argument2, byte argument3) {
         byte nn = convertTo8Bit(argument2, argument3);
+        printDebug(opcodeString, String.format("RAND $v[%02x] = $%02x", argument1, nn));
         v[argument1] = (int) (Math.random() * 255) & nn;
     }
 
@@ -428,6 +469,7 @@ public class Cpu {
      * @param argument3
      */
     private void draw(byte argument1, byte argument2, byte argument3) {
+        printDebug(opcodeString, "DRAW");
 
     }
 
@@ -441,6 +483,8 @@ public class Cpu {
      */
     private void skipKeyPressed(byte argument1, byte argument2, byte argument3) {
         int keyCode = v[argument1];
+        printDebug(opcodeString, String.format("SKP KEY == $%02x", argument2));
+
         // Get most recent key pressed
         if (keyCode == keyPressed) {
             PC += 2;
@@ -458,6 +502,8 @@ public class Cpu {
      */
     private void skipKeyNotPressed(byte argument1, byte argument2, byte argument3) {
         int keyCode = v[argument1];
+        printDebug(opcodeString, String.format("SKP KEY != $%02x", argument2));
+
         // Get most recent key pressed
         if (keyCode != keyPressed) {
             PC += 2;
@@ -471,6 +517,8 @@ public class Cpu {
      */
     private void setvxTimerDelay(byte x) {
         v[x] = (int) delayTimer;
+        printDebug(opcodeString, String.format("SET $v[%02x] = $%02x", x, delayTimer));
+
     }
 
     /**
@@ -480,6 +528,8 @@ public class Cpu {
      * @param x v[x]
      */
     private void waitForKeyPress(byte x) {
+        printDebug(opcodeString, String.format("WAIT KEY_PRESS"));
+
         keyboardPoll = true;
         if (keyPressed != -1) {
             keyboardPoll = false;
@@ -493,6 +543,8 @@ public class Cpu {
      * @param x v[x]
      */
     private void setDelayTimer(byte x) {
+        printDebug(opcodeString, String.format("SET TIME = $v[%02x]", x));
+
         delayTimer = v[x];
     }
 
@@ -502,6 +554,7 @@ public class Cpu {
      * @param x v[x]
      */
     private void setSoundTimer(byte x) {
+        printDebug(opcodeString, String.format("SET SOUND = $v[%02x]", x));
         soundTimer = v[x];
     }
 
@@ -511,6 +564,8 @@ public class Cpu {
      * @param x
      */
     private void iaddVx(byte x) {
+        printDebug(opcodeString, String.format("ADD I + $v[%02x]", x));
+
         i += v[x];
     }
 
@@ -520,6 +575,7 @@ public class Cpu {
      * @param x v[x]
      */
     private void setiSpriteLocation(byte x) {
+        printDebug(opcodeString, String.format("SPRITE (unimplemented)"));
 
     }
 
@@ -529,6 +585,7 @@ public class Cpu {
      * @param x v[x]
      */
     private void setBcd(byte x) {
+        printDebug(opcodeString, String.format("BCD (unimplemented)"));
 
     }
 
@@ -538,6 +595,8 @@ public class Cpu {
      * @param x v[x]
      */
     private void storeV0toVxInMemory(byte x) {
+        printDebug(opcodeString, String.format("STORE v[0] .. $v[%02x]", x));
+
         for (int index = 0; index <= x; index++) {
             // Store v[i] in memory starting at I
             memory[i + index] = (byte) v[index];
@@ -550,6 +609,8 @@ public class Cpu {
      * @param x v[x]
      */
     private void readV0toVxFromMemory(byte x) {
+        printDebug(opcodeString, String.format("READ I = %02x ; v[0] .. $v[%02x]", i, x));
+
         for (int index = 0; index <= x; index++) {
             v[index] = memory[i + index];
         }
@@ -604,15 +665,15 @@ public class Cpu {
                 break;
 
             default:
-
-                System.out.println("Invalid opcode : " + String.format("%02x", endingNibbles));
+                // Invalid opcode
+                printDebug(opcodeString, "Unknown opcode");
                 break;
         }
 
     }
 
     private void handleOperation(int opcode, byte instruction, byte argument1, byte argument2, byte argument3) {
-        String opcodeString = String.format("%04x", opcode & 0xffff);
+        opcodeString = String.format("%04x", opcode & 0xffff);
 
         switch (instruction) {
             case 0x0:
@@ -628,47 +689,34 @@ public class Cpu {
                     // Call (0x0NNN)
                     // call(argument1, argument2, argument3);
                 }
-                printDebug(opcodeString, Status.SUCCESS);
                 break;
 
             case 0x1:
                 jump(argument1, argument2, argument3);
-                printDebug(opcodeString, Status.SUCCESS);
                 break;
 
             case 0x2:
                 subRoutine(argument1, argument2, argument3);
-                printDebug(opcodeString, Status.SUCCESS);
                 break;
 
             case 0x3:
                 skipEqual(argument1, argument2, argument3);
-                printDebug(opcodeString, Status.SUCCESS);
-
                 break;
 
             case 0x4:
                 skipNotEqual(argument1, argument2, argument3);
-                printDebug(opcodeString, Status.SUCCESS);
-
                 break;
 
             case 0x5:
                 skipEqual(argument1, argument2);
-                printDebug(opcodeString, Status.SUCCESS);
-
                 break;
 
             case 0x6:
                 set(argument1, argument2, argument3);
-                printDebug(opcodeString, Status.SUCCESS);
-
                 break;
 
             case 0x7:
                 add(argument1, argument2, argument3);
-                printDebug(opcodeString, Status.SUCCESS);
-
                 break;
 
             case 0x8:
@@ -677,26 +725,18 @@ public class Cpu {
 
             case 0x9:
                 skipNotEqual(argument1, argument2);
-                printDebug(opcodeString, Status.SUCCESS);
-
                 break;
 
             case 0xA:
                 setAddress(argument1, argument2, argument3);
-                printDebug(opcodeString, Status.SUCCESS);
-
                 break;
 
             case 0xB:
                 jumpTo(argument1, argument2, argument3);
-                printDebug(opcodeString, Status.SUCCESS);
-
                 break;
 
             case 0xC:
                 andRandom(argument1, argument2, argument3);
-                printDebug(opcodeString, Status.SUCCESS);
-
                 break;
 
             case 0xD:
@@ -706,13 +746,11 @@ public class Cpu {
             case 0xE:
                 if (argument2 == 0x9 && argument3 == 0xE) {
                     skipKeyPressed(argument1, argument2, argument3);
-                    printDebug(opcodeString, Status.SUCCESS);
                 } else if (argument2 == 0xA && argument3 == 0x1) {
                     skipKeyNotPressed(argument1, argument2, argument3);
-                    printDebug(opcodeString, Status.SUCCESS);
-
                 } else {
-                    printDebug(opcodeString, Status.ERROR);
+                    printDebug(opcodeString, "Unknown opcode");
+
                 }
 
                 break;
@@ -722,7 +760,7 @@ public class Cpu {
                 break;
 
             default:
-                printDebug(opcodeString, Status.ERROR);
+                printDebug(opcodeString, "Unknown opcode");
                 break;
         }
     }

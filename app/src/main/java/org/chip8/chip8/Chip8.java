@@ -30,7 +30,7 @@ public class Chip8 implements Runnable {
     public void gameLoop() {
         gui = new Gui(WIDTH, HEIGHT);
         cpu = new Cpu(gui.getGameScreen());
-        cpu.attachDebugPanel(gui.getdebugPanel());
+        cpu.attachDebugText(gui.getDebugText());
         boolean dropFrame = false;
         double currentTime = 0,
                 previousTime = System.nanoTime() / 1e9,
@@ -59,8 +59,7 @@ public class Chip8 implements Runnable {
                     romLoaded = true;
                 }
             }
-            gui.getdebugPanel().revalidate();
-            gui.getdebugPanel().repaint();
+            gui.renderDebug();
             if (dropFrame)
                 easeUsage();
 

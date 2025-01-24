@@ -1,0 +1,3209 @@
+202 a3da SET I == $3da 
+204 f01e ADD I + $v[00] 
+206 f01e ADD I + $v[00] 
+208 f01e ADD I + $v[00] 
+20a 5023 SKP $00 == $00 
+20e 323c SKP $3c == $00 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092 SUB $92 
+94 220e SUB $20e 
+210 141c JMP $41c 
+420 c863 RAND $v[08] = $63 
+428 1ef0 JMP $ef0 
+ef6 df58 DRAW 
+ef8 1838 JMP $838 
+83e ffa5 Unknown opcode 
+840 3ef2 SKP $f2 == $00 
+842 5523 SKP $00 == $00 
+848 d652 DRAW 
+84a 2360 SUB $360 
+364 2092
