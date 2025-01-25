@@ -1,4 +1,11 @@
 # Chip8 Interpreter
+<p align="center">
+
+
+<img src="https://github.com/user-attachments/assets/c67b275d-7eb0-42cf-8b64-4f4bafe69155">
+
+</p>
+
 
 ## Installation
 
