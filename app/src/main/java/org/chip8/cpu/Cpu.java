@@ -65,14 +65,17 @@ public class Cpu {
     private String opcodeString;
     private boolean pause = false;
     private int[] memory;
-    private boolean debug = true;
+    private boolean debug = false;
     private Stack<Integer> stack;
     private int keyPressed = -1;
     private LinkedList<String> debugText;
-
     private boolean keyboardPoll = false;
 
     private BufferedImage gameScreen;
+
+    public void setDebug(boolean debug) {
+        this.debug = debug;
+    }
 
     public Cpu(BufferedImage gameScreen) {
         v = new int[16];
@@ -107,6 +110,8 @@ public class Cpu {
      * @param status
      */
     private void printDebug(String opcode, String description) {
+        if (!debug)
+            return;
         String programCounter = String.format("%02x", PC);
         debugText.add(programCounter + " " + opcode + " " + description);
     }

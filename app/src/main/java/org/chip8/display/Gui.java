@@ -48,7 +48,6 @@ public class Gui extends JFrame implements KeyListener {
     private Canvas gameCanvas, debugCanvas;
     private BufferStrategy bs, debugbs;
     private Graphics g, debugGraphics;
-    private boolean romInserted = false;
     private final String NO_ROM = "Please insert ROM";
     private File loadedRom;
     private ScrollPane debugPane;
@@ -56,12 +55,18 @@ public class Gui extends JFrame implements KeyListener {
     private JLabel debugLines[];
     private JPanel debugPanel;
     private int currentKeyCode;
-    private boolean keyPressed = false, pause = false;
     private LinkedList<String> debugText;
     private File debugFile;
     private Writer debugWriter;
     private byte[] fontSet;
     private HashMap<Integer, Integer> keyMapper;
+    private boolean romInserted = false;
+    private boolean keyPressed = false, pause = false;
+    private boolean debug = false;
+
+    public void setDebug(boolean debug) {
+        this.debug = debug;
+    }
 
     public int getKeyCode() {
         return currentKeyCode;
@@ -149,6 +154,8 @@ public class Gui extends JFrame implements KeyListener {
      * Format $addr $opcode
      */
     public void renderDebug() {
+        if (!debug)
+            return;
         debugGraphics = debugbs.getDrawGraphics();
         debugGraphics.setColor(Color.BLUE);
         debugGraphics.fillRect(0, 0, debugCanvas.getWidth(), debugCanvas.getHeight());
@@ -299,7 +306,8 @@ public class Gui extends JFrame implements KeyListener {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.add(gameCanvas, BorderLayout.CENTER);
-        panel.add(debugCanvas, BorderLayout.EAST);
+        if (debug)
+            panel.add(debugCanvas, BorderLayout.EAST);
         this.add(panel);
         this.pack();
         this.setJMenuBar(getMenu());
@@ -309,13 +317,17 @@ public class Gui extends JFrame implements KeyListener {
         this.addKeyListener(this);
         this.setVisible(true);
         this.update(gameCanvas.getGraphics());
-        this.update(debugCanvas.getGraphics());
+        if (debug)
+            this.update(debugCanvas.getGraphics());
 
         keyMapper = getMappedKeys();
         gameCanvas.createBufferStrategy(2);
         bs = gameCanvas.getBufferStrategy();
-        debugCanvas.createBufferStrategy(2);
-        debugbs = debugCanvas.getBufferStrategy();
+
+        if (debug) {
+            debugCanvas.createBufferStrategy(2);
+            debugbs = debugCanvas.getBufferStrategy();
+        }
     }
 
     /**
