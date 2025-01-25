@@ -8,7 +8,18 @@
 
 
 ## Installation
+### From release
 
+Download <a href="https://github.com/0xRobinman/Chip8-interpreter/archive/refs/tags/1.0.zip">here</a>
+
+```bash
+unzip Chip8-interpreter-1.0.zip
+cd Chip8-interpreter-1.0
+gradle build
+gradle run
+```
+
+### From source
 ```bash
 git clone https://github.com/0xRobinman/Chip8-interpreter
 cd Chip8-interpreter
