@@ -10,6 +10,7 @@ public class Chip8 implements Runnable {
     private final int WIDTH = 64, HEIGHT = 32;
     private final int FPS = 60;
     private final double FRAME_INTERVAL = 1.0 / FPS;
+    private int counter = 0;
 
     /**
      * Everything that must be done in a single frame.
@@ -24,9 +25,12 @@ public class Chip8 implements Runnable {
         if (gui.getPause() != cpu.getPause()) {
             cpu.setPause(gui.getPause());
         }
-        for (int i = 0; i < 11; i++)
-            cpu.tick();
-        cpu.handleTimers();
+        cpu.tick();
+
+        // For every 11 CPU ticks, the clocks go down by 1.
+        if (counter % 11 == 0)
+            cpu.handleTimers();
+        counter++;
         gui.renderGame();
     }
 

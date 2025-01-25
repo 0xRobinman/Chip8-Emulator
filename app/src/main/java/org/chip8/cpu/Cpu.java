@@ -310,7 +310,7 @@ public class Cpu {
         int nn = convertTo8Bit(argument2, argument3);
         printDebug(opcodeString, String.format("SET $v[%02x] = $%02x", argument1, nn));
 
-        v[argument1] = nn;
+        v[argument1] = nn & 0xFF;
     }
 
     /**
@@ -324,8 +324,7 @@ public class Cpu {
     private void add(int argument1, int argument2, int argument3) {
         int nn = convertTo8Bit(argument2, argument3);
         printDebug(opcodeString, String.format("ADD $v[%02x] = $%02x", argument1, nn));
-
-        v[argument1] += nn;
+        v[argument1] = (v[argument1] + nn) & 0xFF;
     }
 
     /**
@@ -337,7 +336,7 @@ public class Cpu {
      * @param n
      */
     private void handle0x8Opcode(int x, int y, int n) {
-
+        int carry = 0;
         switch (n) {
             case 0x0:
                 v[x] = v[y];
@@ -346,61 +345,61 @@ public class Cpu {
                 break;
 
             case 0x1:
-                v[x] |= v[y];
+                v[x] = (v[x] | v[y]) & 0xFF;
                 printDebug(opcodeString, String.format("OR $v[%02x] = $v[%02x]", x, y));
 
                 break;
 
             case 0x2:
-                v[x] &= v[y];
+                v[x] = (v[x] & v[y]) & 0xFF;
                 printDebug(opcodeString, String.format("AND $v[%02x] = $v[%02x]", x, y));
 
                 break;
 
             case 0x3:
-                v[x] ^= v[y];
+                v[x] = (v[x] ^ v[y]) & 0xFF;
                 printDebug(opcodeString, String.format("XOR $v[%02x] = $v[%02x]", x, y));
 
                 break;
 
             case 0x4:
                 int sum = v[x] + v[y];
-                v[0xF] = (sum > 0xFF) ? 1 : 0;
+                carry = (sum > 0xFF) ? 1 : 0;
                 v[x] = sum & 0xFF;
                 printDebug(opcodeString, String.format("ADD $v[%02x] = $v[%02x]", x, y));
-
+                v[0xF] = carry;
                 break;
 
             case 0x5:
                 int vx = v[x] & 0xFF;
                 int vy = v[y] & 0xFF;
-
-                v[0xF] = (vx >= vy) ? 1 : 0;
-
+                carry = (vx >= vy) ? 1 : 0;
                 v[x] = (vx - vy) & 0xFF;
+                v[0xF] = carry;
                 printDebug(opcodeString, String.format("MIN $v[%02x] = $v[%02x]", x, y));
 
                 break;
 
             case 0x6:
-                v[0xF] = v[x] & 1;
+                carry = v[x] & 1;
                 v[x] = (v[x] >> 1) & 0xFF;
+                v[0xF] = carry;
                 printDebug(opcodeString, String.format("SRL $v[%02x] >> 1", x));
 
                 break;
 
             case 0x7:
-
-                v[0xF] = (v[y] >= v[x]) ? 1 : 0; // No Borrow, flag = 1
-
+                carry = (v[y] >= v[x]) ? 1 : 0;
                 v[x] = (v[y] - v[x]) & 0xFF;
+                v[0xF] = carry;
                 printDebug(opcodeString, String.format("MIN $v[%02x] = $v[%02x]", y, x));
 
                 break;
 
             case 0xE:
-                v[0xF] = (v[x] & 0x80) >> 7;
+                carry = (v[x] & 0x80) >> 7;
                 v[x] = (v[x] << 1) & 0xFF;
+                v[0xF] = carry;
                 printDebug(opcodeString, String.format("SLL $v[%02x] << 1", x));
 
                 break;
@@ -573,7 +572,6 @@ public class Cpu {
      */
     private void setDelayTimer(int x) {
         printDebug(opcodeString, String.format("SET TIME = $v[%02x]", x));
-
         delayTimer = v[x];
     }
 

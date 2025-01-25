@@ -28,6 +28,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 import javax.swing.BoxLayout;
@@ -60,6 +61,7 @@ public class Gui extends JFrame implements KeyListener {
     private File debugFile;
     private Writer debugWriter;
     private byte[] fontSet;
+    private HashMap<Integer, Integer> keyMapper;
 
     public int getKeyCode() {
         return currentKeyCode;
@@ -246,6 +248,39 @@ public class Gui extends JFrame implements KeyListener {
         }
     }
 
+    /**
+     * Maps Chip8 keys with keyboard keys in addition to WASD and Arrow keys
+     * 
+     * @return
+     */
+    private HashMap<Integer, Integer> getMappedKeys() {
+        HashMap<Integer, Integer> keyMapper = new HashMap<>();
+
+        keyMapper.put(KeyEvent.VK_1, 0x1);
+        keyMapper.put(KeyEvent.VK_2, 0x2);
+        keyMapper.put(KeyEvent.VK_3, 0x3);
+        keyMapper.put(KeyEvent.VK_4, 0xC);
+        keyMapper.put(KeyEvent.VK_Q, 0x4);
+        keyMapper.put(KeyEvent.VK_W, 0x5);
+        keyMapper.put(KeyEvent.VK_E, 0x6);
+        keyMapper.put(KeyEvent.VK_R, 0xD);
+        keyMapper.put(KeyEvent.VK_A, 0x7);
+        keyMapper.put(KeyEvent.VK_S, 0x8);
+        keyMapper.put(KeyEvent.VK_D, 0x9);
+        keyMapper.put(KeyEvent.VK_F, 0xE);
+        keyMapper.put(KeyEvent.VK_Z, 0xA);
+        keyMapper.put(KeyEvent.VK_X, 0x0);
+        keyMapper.put(KeyEvent.VK_C, 0xB);
+        keyMapper.put(KeyEvent.VK_V, 0xF);
+        keyMapper.put(KeyEvent.VK_UP, 0x2);
+        keyMapper.put(KeyEvent.VK_DOWN, 0x8);
+        keyMapper.put(KeyEvent.VK_LEFT, 0x4);
+        keyMapper.put(KeyEvent.VK_RIGHT, 0x6);
+
+        return keyMapper;
+
+    }
+
     public Gui(int width, int height) {
         loadedRom = null;
         debugText = new LinkedList<>();
@@ -275,6 +310,8 @@ public class Gui extends JFrame implements KeyListener {
         this.setVisible(true);
         this.update(gameCanvas.getGraphics());
         this.update(debugCanvas.getGraphics());
+
+        keyMapper = getMappedKeys();
         gameCanvas.createBufferStrategy(2);
         bs = gameCanvas.getBufferStrategy();
         debugCanvas.createBufferStrategy(2);
@@ -289,25 +326,26 @@ public class Gui extends JFrame implements KeyListener {
      * @return
      */
     private int getMapedKeyCode(int keyCode) {
-        return keyCode;
+        return keyMapper.getOrDefault(keyCode, -1);
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         currentKeyCode = getMapedKeyCode(e.getKeyCode());
-        keyPressed = true;
+        if (currentKeyCode != -1)
+            keyPressed = true;
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         // If a key is released, and it's not the current key, ignore it since another
         // key is being pressed.
-        if (e.getKeyCode() != currentKeyCode) {
-            return;
-        } else {
+        int releasedKey = getMapedKeyCode(e.getKeyCode());
+        if (releasedKey == currentKeyCode) {
             keyPressed = false;
             currentKeyCode = -1;
         }
+
     }
 
     @Override
